@@ -23,8 +23,8 @@ pip install pycryptodome
 
 ### 4. 填写账号密码
 1. 用 **记事本** 打开 `config.ini.example`
-2. 把 `YOUR_STUDENT_ID` 改成你的学号
-3. 把 `YOUR_PASSWORD` 改成你的密码
+2. 找到 `username = YOUR_STUDENT_ID`，把 `YOUR_STUDENT_ID` 改成你的**学号（账号）**
+3. 找到 `password = YOUR_PASSWORD`，把 `YOUR_PASSWORD` 改成你的**密码**
 4. **另存为** 改名为 `config.ini`（去掉 .example）
 
 ### 5. 运行

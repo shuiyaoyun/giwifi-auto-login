@@ -1,5 +1,5 @@
 [Account]
-# Your GiWiFi username (student ID)
-username = 19015310530
-# Your GiWiFi password
-password = s1301246
+# 你的学号（账号）
+username = YOUR_STUDENT_ID
+# 你的密码
+password = YOUR_PASSWORD
