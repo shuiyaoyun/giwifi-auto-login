@@ -14,29 +14,6 @@ CHECK_INTERVAL = 30
 LOG_FILE = os.path.expanduser("~/auto_login.log")
 CONFIG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.ini")
 
-
-def load_config():
-    """Load account from config.ini. Create template if missing."""
-    if not os.path.exists(CONFIG_FILE):
-        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
-            f.write("[Account]\n")
-            f.write("# Your GiWiFi username (student ID)\n")
-            f.write("username = YOUR_STUDENT_ID\n")
-            f.write("# Your GiWiFi password\n")
-            f.write("password = YOUR_PASSWORD\n")
-        log.info("Config file created: %s - edit and re-run", CONFIG_FILE)
-        print("\n[First run] Edit config.ini with your account, then re-run.\n")
-        sys.exit(0)
-    config = configparser.ConfigParser()
-    config.read(CONFIG_FILE, encoding="utf-8")
-    return config["Account"]["username"], config["Account"]["password"]
-
-
-ACCOUNT, PASSWORD = load_config()
-nLOGIN_URL = "http://172.27.253.230/gportal/Web/loginAction"
-LOGIN_PAGE = "http://172.27.253.230/gportal/web/login?wlanacname=SDZYY"
-AES_KEY = b"1234567887654321"
-
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s  %(message)s",
@@ -49,6 +26,27 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 
+def load_config():
+    """Load account from config.ini. Create template if missing."""
+    if not os.path.exists(CONFIG_FILE):
+        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+            f.write("[Account]\n")
+            f.write("# Your GiWiFi username (student ID)\n")
+            f.write("username = YOUR_STUDENT_ID\n")
+            f.write("# Your GiWiFi password\n")
+            f.write("password = YOUR_PASSWORD\n")
+        print("\n[First run] Edit config.ini with your account, then re-run.\n")
+        sys.exit(0)
+    config = configparser.ConfigParser()
+    config.read(CONFIG_FILE, encoding="utf-8")
+    return config["Account"]["username"], config["Account"]["password"]
+
+
+ACCOUNT, PASSWORD = load_config()
+
+LOGIN_URL = "http://172.27.253.230/gportal/Web/loginAction"
+LOGIN_PAGE = "http://172.27.253.230/gportal/web/login?wlanacname=SDZYY"
+AES_KEY = b"1234567887654321"
 def aes_encrypt_cbc_zero(key, iv, plain):
     try:
         from Crypto.Cipher import AES
