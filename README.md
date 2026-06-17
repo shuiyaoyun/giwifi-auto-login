@@ -1,30 +1,51 @@
 # GiWiFi Auto Login
 
-校园网 GiWiFi 自动登录与断线重连脚本。
+校园网 GiWiFi 自动登录 + 断线重连脚本。**后台静默运行，断网自动连。**
 
-## 功能
+## 小白使用教程
 
-- 每 30 秒检测网络连通性
-- 断网后自动尝试登录 GiWiFi 校园网
-- 连续 3 次失败后加倍等待间隔
-- 日志记录到 `~/auto_login.log`
-- 后台静默运行（无窗口）
+### 1. 下载
+点 GitHub 仓库页面的绿色按钮 **Code** → **Download ZIP** → 解压到一个文件夹
+
+### 2. 装 Python（如果没有的话）
+打开 **命令提示符（cmd）**，输入：
+```
+python --version
+```
+如果提示找不到，去 https://www.python.org/downloads/ 下载安装（**安装时勾选 Add Python to PATH**）
+
+### 3. 安装依赖
+在命令提示符输入：
+```
+pip install pycryptodome
+```
+等它装完。
+
+### 4. 填写账号密码
+1. 用 **记事本** 打开 `config.ini.example`
+2. 把 `YOUR_STUDENT_ID` 改成你的学号
+3. 把 `YOUR_PASSWORD` 改成你的密码
+4. **另存为** 改名为 `config.ini`（去掉 .example）
+
+### 5. 运行
+**双击** `auto_login_launcher.vbs`——没有任何窗口弹出来，已经在后台跑了。
+
+### 6. 设置开机自启（可选）
+1. 搜索打开 **任务计划程序**
+2. 点右侧 **创建基本任务**
+3. 名称填 `GiWiFi Auto Login`，触发器选 **用户登录时**
+4. 操作选 **启动程序**，程序填 `wscript.exe`，参数填 `auto_login_launcher.vbs` 的完整路径
 
 ## 文件说明
 
 | 文件 | 说明 |
 |------|------|
-| `auto_login.py` | 核心脚本，包含网络检测、AES 加密、自动登录 |
-| `auto_login_launcher.vbs` | 静默启动器，用 pythonw.exe 无窗口运行 |
-
-## 使用方法
-
-1. 编辑 `auto_login.py` 顶部的 `ACCOUNT` 和 `PASSWORD`
-2. 安装依赖：`pip install pycryptodome`
-3. 双击 `auto_login_launcher.vbs` 运行
-4. 或设置计划任务开机自启
+| `auto_login.py` | 核心脚本（不要动它） |
+| `auto_login_launcher.vbs` | 双击启动（无窗口后台运行） |
+| `config.ini.example` | 配置模板，改成 `config.ini` 并填账号密码 |
+| `config.ini` | 你的账号密码（已加入 .gitignore，不会上传到 GitHub） |
 
 ## 依赖
 
 - Python 3
-- pycryptodome（推荐）或 cryptography（可选）
+- `pip install pycryptodome`

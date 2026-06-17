@@ -1,0 +1,5 @@
+﻿[Account]
+# Your GiWiFi username (student ID)
+username = YOUR_STUDENT_ID
+# Your GiWiFi password
+password = YOUR_PASSWORD
