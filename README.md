@@ -31,10 +31,7 @@ pip install pycryptodome
 **双击** `auto_login_launcher.vbs`——没有任何窗口弹出来，已经在后台跑了。
 
 ### 6. 设置开机自启（可选）
-1. 搜索打开 **任务计划程序**
-2. 点右侧 **创建基本任务**
-3. 名称填 `GiWiFi Auto Login`，触发器选 **用户登录时**
-4. 操作选 **启动程序**，程序填 `wscript.exe`，参数填 `auto_login_launcher.vbs` 的完整路径
+右键 `install.bat` → **以管理员身份运行**，自动注册开机自启。
 
 ## 文件说明
 
@@ -42,6 +39,7 @@ pip install pycryptodome
 |------|------|
 | `auto_login.py` | 核心脚本 |
 | `auto_login_launcher.vbs` | 双击启动（无窗口后台运行） |
+| `install.bat` | 右键→管理员运行，自动注册开机自启 |
 | `config.ini.example` | 配置模板，改成 `config.ini` 并填账号密码 |
 | `config.ini` | 你的账号密码 |
 
