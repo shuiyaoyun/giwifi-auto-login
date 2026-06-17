@@ -23,7 +23,7 @@ pip install pycryptodome
 
 ### 4. 填写账号密码
 1. 用 **记事本** 打开 `config.ini.example`
-2. 找到 `username = YOUR_STUDENT_ID`，把 `YOUR_STUDENT_ID` 改成你的**学号（账号）**
+2. 找到 `username = YOUR_STUDENT_ID`，把 `YOUR_STUDENT_ID` 改成你的**账号**
 3. 找到 `password = YOUR_PASSWORD`，把 `YOUR_PASSWORD` 改成你的**密码**
 4. **另存为** 改名为 `config.ini`（去掉 .example）
 
@@ -40,10 +40,10 @@ pip install pycryptodome
 
 | 文件 | 说明 |
 |------|------|
-| `auto_login.py` | 核心脚本（不要动它） |
+| `auto_login.py` | 核心脚本 |
 | `auto_login_launcher.vbs` | 双击启动（无窗口后台运行） |
 | `config.ini.example` | 配置模板，改成 `config.ini` 并填账号密码 |
-| `config.ini` | 你的账号密码（已加入 .gitignore，不会上传到 GitHub） |
+| `config.ini` | 你的账号密码 |
 
 ## 依赖
 
